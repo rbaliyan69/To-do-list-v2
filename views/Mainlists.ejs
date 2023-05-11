@@ -1,0 +1,33 @@
+<%- include("header"); -%>
+    <main class="main m-auto">
+    <!-- to-do list header box -->
+    <div class="box">
+        <h1>
+            <%= taskName %>
+        </h1>
+        <p>
+            <%= weekDay %>
+        </p>
+    </div>
+
+   <!-- to-do list task add here -->
+   <div class="box">
+    <% todo.forEach((item, index) => { %>
+     <form action="/delete" method="post" >
+         <div class="item">
+             <input type="checkbox" value="<%= item._id%>" name = "checkbox" onchange="this.form.submit()">
+             <p>
+                <%= todo[index]= item.task ;%>
+             </p>
+         </div>
+    </form>
+    <% }); %> 
+        
+
+                <form class="form" action="/" title="To-do list" method="post">
+                    <input type="text" placeholder="Type your tasks here" name="tasks">
+                    <button type="submit" name="butto" value="<%= taskName%>">+</button>
+                </form>
+    </div>
+    </main>
+    <%- include("footer"); -%>
